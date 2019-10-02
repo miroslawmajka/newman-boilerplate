@@ -1,0 +1,40 @@
+version: 2.1
+
+jobs:
+  restore:
+    docker:
+      - image: circleci/node:stretch
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+  postman:
+    docker:
+      - image: circleci/node:stretch
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Setup Local Postman Environment
+          command: cp environments/local-postman-environment.json postman-environment.json
+      - run:
+          name: Run Postman Tests
+          command: (./node_modules/.bin/sample-express-app > output/express.log &) && ./run-newman.sh
+      - store_test_results:
+          path: test-results
+workflows:
+  version: 2.1
+  restore_postman:
+    jobs:
+      - restore
+      - postman:
+          requires:
+            - restore

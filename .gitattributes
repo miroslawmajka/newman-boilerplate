@@ -1,0 +1,5 @@
+package.json text eol=lf
+package-lock.json text eol=lf
+.eslintrc.js text eol=lf
+environments/local-postman-environment.json text eol=lf
+*.sh text eol=lf
