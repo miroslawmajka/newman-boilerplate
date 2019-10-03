@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  restore:
+  build:
     docker:
       - image: circleci/node:stretch
     steps:
@@ -15,27 +15,16 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
-  postman:
-    docker:
-      - image: circleci/node:stretch
-    steps:
-      - checkout
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-      - run: mkdir output
-      - run: cp environments/local-postman-environment.json postman-environment.json
+      - run:
+          name: Create the "output" directory
+          command: mkdir output
+      - run:
+          name: Copy a static local environment from the template directory
+          command: cp environments/local-postman-environment.json postman-environment.json
       - run:
           name: Run Postman Tests
-          command: (./node_modules/.bin/sample-express-app > output/express.log &) && ./run-newman.sh
+          command: (npm start > output/express.log &) && ./run-newman.sh
       - store_test_results:
           path: test-results
       - store_artifacts:
           path: output
-workflows:
-  version: 2.1
-  restore_postman:
-    jobs:
-      - restore
-      - postman:
-          requires:
-            - restore
