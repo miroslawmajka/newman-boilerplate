@@ -66,4 +66,4 @@ typings/
 .vs
 
 test-results
-/postman-environment.json
+output

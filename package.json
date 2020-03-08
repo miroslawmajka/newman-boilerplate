@@ -1,9 +1,10 @@
 {
   "name": "newman-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Newman Boilerplate",
   "scripts": {
-    "start": "sample-express-app"
+    "start": "sample-express-app",
+    "test": "node run-load-tests.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,10 @@
   },
   "homepage": "https://github.com/miroslawmajka/newman-boilerplate#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "sample-express-app": "^1.0.5"
   },
   "devDependencies": {
-    "newman": "^4.5.5"
+    "newman": "^4.6.0"
   }
 }

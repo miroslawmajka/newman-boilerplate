@@ -19,11 +19,11 @@ jobs:
           name: Create the "output" directory
           command: mkdir output
       - run:
-          name: Copy a static local environment from the template directory
-          command: cp environments/local-postman-environment.json postman-environment.json
-      - run:
-          name: Run Postman Tests
+          name: Run Postman Acceptance Tests
           command: (npm start > output/express.log &) && ./run-newman.sh
+      - run:
+          name: Run Postman Load Tests
+          command: (npm start > output/express.log &) && npm test
       - store_test_results:
           path: test-results
       - store_artifacts:
