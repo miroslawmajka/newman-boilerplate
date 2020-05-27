@@ -24,6 +24,6 @@
     "sample-express-app": "^1.0.5"
   },
   "devDependencies": {
-    "newman": "^4.6.0"
+    "newman": "^4.6.1"
   }
 }
