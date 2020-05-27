@@ -21,7 +21,7 @@
   "homepage": "https://github.com/miroslawmajka/newman-boilerplate#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "sample-express-app": "^1.0.5"
+    "sample-express-app": "^1.0.6"
   },
   "devDependencies": {
     "newman": "^4.6.1"
