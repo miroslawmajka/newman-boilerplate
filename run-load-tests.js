@@ -13,7 +13,7 @@ const loadTestRuns = [];
 
 for (let i = 0; i < PARALLEL_RUNS; i++) loadTestRuns.push(i);
 
-(async() => {
+(async () => {
     try {
         const results = await Promise.all(loadTestRuns.map(i => runTestCollection(i)));
 
@@ -23,8 +23,7 @@ for (let i = 0; i < PARALLEL_RUNS; i++) loadTestRuns.push(i);
 
         const failCount = failedRuns.length;
 
-        if (failCount > 0)
-        {
+        if (failCount > 0) {
             const failPrefix = '[FAIL]';
 
             console.warn(`${failPrefix} failed collection runs: ${failCount}`);
@@ -41,9 +40,8 @@ for (let i = 0; i < PARALLEL_RUNS; i++) loadTestRuns.push(i);
             });
 
             process.exit(1);
-        } else
-        {
-            console.log('[SUCCESS] All collections passed')
+        } else {
+            console.log('[SUCCESS] All collections passed');
         }
     } catch (err) {
         console.error('Failed running load tests');

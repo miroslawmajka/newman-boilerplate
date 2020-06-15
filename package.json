@@ -1,29 +1,30 @@
 {
-  "name": "newman-boilerplate",
-  "version": "1.0.2",
-  "description": "Newman Boilerplate",
-  "scripts": {
-    "start": "sample-express-app",
-    "test": "node run-load-tests.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/miroslawmajka/newman-boilerplate.git"
-  },
-  "keywords": [
-    "newman"
-  ],
-  "author": "Miroslaw Majka",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/miroslawmajka/newman-boilerplate/issues"
-  },
-  "homepage": "https://github.com/miroslawmajka/newman-boilerplate#readme",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "sample-express-app": "^1.0.6"
-  },
-  "devDependencies": {
-    "newman": "^4.6.1"
-  }
+    "name": "newman-boilerplate",
+    "version": "1.0.2",
+    "description": "Newman Boilerplate",
+    "author": "Miroslaw Majka",
+    "license": "MIT",
+    "keywords": [
+        "newman",
+        "postman"
+    ],
+    "homepage": "https://github.com/miroslawmajka/newman-boilerplate#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/miroslawmajka/newman-boilerplate.git"
+    },
+    "bugs": {
+        "url": "https://github.com/miroslawmajka/newman-boilerplate/issues"
+    },
+    "scripts": {
+        "start": "sample-express-app",
+        "test": "node run-load-tests.js"
+    },
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "sample-express-app": "^1.0.6"
+    },
+    "devDependencies": {
+        "newman": "^4.6.1"
+    }
 }
